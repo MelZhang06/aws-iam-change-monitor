@@ -1,0 +1,13 @@
+index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss
+| dedup recipientAccountId eventID
+| eval account_id=recipientAccountId, target_user='requestParameters.userName', actor_arn='userIdentity.arn', role_arn=coalesce('userIdentity.sessionContext.sessionIssuer.arn','userIdentity.arn'), actor_key='userIdentity.accessKeyId', policy_arn=coalesce('requestParameters.policyArn',"-"), outcome=if(isnotnull(errorCode) OR isnotnull(errorMessage),"Rejected","API completed without reported error")
+| where account_id=$case_account|s$ AND target_user=$case_target|s$ AND _time>=tonumber($case_from|s$) AND _time<tonumber($case_to|s$)
+| lookup gss_assets.csv account_id target_user OUTPUT target_arn environment owner expected_policy boundary console_access snapshot_from snapshot_to
+| eval snapshot_valid=if(_time>=strptime(replace(snapshot_from,"Z$","+0000"),"%Y-%m-%dT%H:%M:%S%z") AND _time<=strptime(replace(snapshot_to,"Z$","+0000"),"%Y-%m-%dT%H:%M:%S%z"),1,0)
+| eval environment=if(snapshot_valid=1,environment,"Unknown"), context_status=if(snapshot_valid=1,"Snapshot available - verify","Missing or out-of-period snapshot"), target_arn=if(snapshot_valid=1,target_arn,"Unresolved target ARN")
+| lookup gss_roles.csv account_id role_arn OUTPUT owner as role_owner attachment_scope
+| stats values(environment) as Environment values(owner) as Service_owner values(expected_policy) as Expected_baseline values(boundary) as Boundary values(console_access) as Console_access values(role_arn) as Caller_roles values(role_owner) as Role_owner values(attachment_scope) as Delegation_scope values(context_status) as Snapshot_status by account_id target_user
+| rename account_id as "AWS account" target_user as "Affected identity"
+| eval Owners=Service_owner." / ".Role_owner
+| rename Expected_baseline as "Expected baseline" Console_access as "Console access" Snapshot_status as "Asset context"
+| table Environment Owners "Expected baseline" Boundary "Console access" "Asset context"

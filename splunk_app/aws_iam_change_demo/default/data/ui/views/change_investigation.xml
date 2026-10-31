@@ -1,0 +1,494 @@
+<dashboard version="2" theme="dark">
+<label>AWS IAM Change Monitor</label>
+<description>Proactive detection and human verification of production service-identity changes. Original synthetic scenario.</description>
+<definition><![CDATA[
+{
+  "title": "AWS IAM Change Monitor",
+  "description": "Proactive detection and human verification of production service-identity changes. Original synthetic scenario.",
+  "inputs": {},
+  "defaults": {
+    "tokens": {
+      "default": {
+        "case_account": {
+          "value": "Choose an alert"
+        },
+        "case_target": {
+          "value": "Choose an alert"
+        },
+        "case_event": {
+          "value": "__unselected__"
+        },
+        "case_finding": {
+          "value": "__unselected__"
+        },
+        "case_from": {
+          "value": "0"
+        },
+        "case_to": {
+          "value": "1"
+        }
+      }
+    },
+    "visualizations": {
+      "global": {
+        "showProgressBar": true
+      }
+    }
+  },
+  "visualizations": {
+    "viz_intro": {
+      "type": "splunk.markdown",
+      "title": "",
+      "options": {
+        "markdown": "### Detect → alert → investigate\nSynthetic AWS management events. An enabled scheduled rule records high-risk policy attachments; the table below reads delivered alert records, not recomputed detection results. No email, ITSM or containment integration."
+      }
+    },
+    "viz_Indexed_events": {
+      "type": "splunk.singlevalue",
+      "title": "Indexed IAM events · 8d",
+      "options": {},
+      "dataSources": {
+        "primary": "ds_metric_Indexed_events"
+      }
+    },
+    "viz_Unique_events": {
+      "type": "splunk.singlevalue",
+      "title": "Unique events · 8d",
+      "options": {},
+      "dataSources": {
+        "primary": "ds_metric_Unique_events"
+      }
+    },
+    "viz_Accounts": {
+      "type": "splunk.singlevalue",
+      "title": "AWS accounts · 8d",
+      "options": {},
+      "dataSources": {
+        "primary": "ds_metric_Accounts"
+      }
+    },
+    "viz_Rejected_requests": {
+      "type": "splunk.singlevalue",
+      "title": "Rejected requests · 8d",
+      "options": {},
+      "dataSources": {
+        "primary": "ds_metric_Rejected_requests"
+      }
+    },
+    "viz_count": {
+      "type": "splunk.singlevalue",
+      "title": "Recorded alerts · received 24h",
+      "options": {},
+      "dataSources": {
+        "primary": "ds_alert_count"
+      }
+    },
+    "viz_trend": {
+      "type": "splunk.column",
+      "title": "IAM activity background — hourly, last eight days",
+      "options": {
+        "legendDisplay": "off",
+        "seriesColors": [
+          "#007ABD"
+        ]
+      },
+      "dataSources": {
+        "primary": "ds_trend"
+      }
+    },
+    "viz_alerts": {
+      "type": "splunk.table",
+      "title": "1. Recorded alerts — select a row to investigate",
+      "options": {
+        "showInternalFields": false,
+        "count": 10
+      },
+      "eventHandlers": [
+        {
+          "type": "drilldown.setToken",
+          "options": {
+            "tokens": [
+              {
+                "token": "case_account",
+                "key": "row._account.value"
+              },
+              {
+                "token": "case_target",
+                "key": "row._target.value"
+              },
+              {
+                "token": "case_event",
+                "key": "row._event.value"
+              },
+              {
+                "token": "case_finding",
+                "key": "row._finding.value"
+              },
+              {
+                "token": "case_from",
+                "key": "row._from.value"
+              },
+              {
+                "token": "case_to",
+                "key": "row._to.value"
+              }
+            ]
+          }
+        }
+      ],
+      "description": "Trigger: successful AdministratorAccess attachment to a production service identity, or an identity with missing context. No login-failure or new-key prerequisite. Rule version: gss-admin-attach-v2. Select a row for event-time evidence.",
+      "dataSources": {
+        "primary": "ds_delivered_alerts"
+      }
+    },
+    "viz_selected": {
+      "type": "splunk.markdown",
+      "title": "",
+      "options": {
+        "markdown": "### 2. Selected identity: $case_target$ · account $case_account$\nEvidence window: 15 minutes before/after the original policy event, including late-arriving events. Target-wide context retains each caller separately. The alert list uses detection time; evidence uses the selected event time. Changing either query is available through Open in Search."
+      }
+    },
+    "viz_context": {
+      "type": "splunk.table",
+      "title": "Configuration and ownership snapshots — fictional, time checked",
+      "options": {
+        "showInternalFields": false
+      },
+      "hideWhenNoData": true,
+      "dataSources": {
+        "primary": "ds_context"
+      }
+    },
+    "viz_timeline": {
+      "type": "splunk.table",
+      "title": "3. What happened? Caller role sessions remain visible",
+      "options": {
+        "showInternalFields": false,
+        "count": 10
+      },
+      "hideWhenNoData": true,
+      "dataSources": {
+        "primary": "ds_timeline"
+      }
+    },
+    "viz_scope": {
+      "type": "splunk.table",
+      "title": "4. Was this action within the recorded change scope?",
+      "options": {
+        "showInternalFields": false,
+        "count": 10
+      },
+      "hideWhenNoData": true,
+      "dataSources": {
+        "primary": "ds_scope"
+      }
+    },
+    "viz_decision": {
+      "type": "splunk.markdown",
+      "title": "",
+      "options": {
+        "markdown": "### 5. Human verification and next action\nConfirm change scope and ownership; distinguish authorised maintenance, out-of-scope change and insufficient evidence. Key creation alone does not prove use or leakage. Matching approval does not clear the overall workflow. This demo does not persist analyst disposition or automatically remediate."
+      }
+    },
+    "viz_raw": {
+      "type": "splunk.table",
+      "title": "Original event evidence and IDs",
+      "options": {
+        "showInternalFields": false,
+        "count": 3
+      },
+      "hideWhenNoData": true,
+      "dataSources": {
+        "primary": "ds_raw"
+      }
+    },
+    "viz_limits": {
+      "type": "splunk.markdown",
+      "title": "",
+      "options": {
+        "markdown": "**Boundaries:** no real AWS ingestion or policy execution; sourceIdentity/employee attribution is not asserted; a role session is not a verified person. AdministratorAccess attachment does not override SCPs/boundaries. Triggered Alerts and the recorded-alert index are demonstrated locally; external notification is not configured."
+      }
+    }
+  },
+  "dataSources": {
+    "ds_metrics": {
+      "type": "ds.search",
+      "name": "Metrics",
+      "options": {
+        "query": "index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss earliest=-8d latest=now\n| stats count as Indexed_events dc(eventID) as Unique_events dc(recipientAccountId) as Accounts count(eval(isnotnull(errorCode))) as Rejected_requests\n"
+      }
+    },
+    "ds_metric_Indexed_events": {
+      "type": "ds.chain",
+      "name": "Metric Indexed Events",
+      "options": {
+        "query": "| table Indexed_events",
+        "extend": "ds_metrics"
+      }
+    },
+    "ds_metric_Unique_events": {
+      "type": "ds.chain",
+      "name": "Metric Unique Events",
+      "options": {
+        "query": "| table Unique_events",
+        "extend": "ds_metrics"
+      }
+    },
+    "ds_metric_Accounts": {
+      "type": "ds.chain",
+      "name": "Metric Accounts",
+      "options": {
+        "query": "| table Accounts",
+        "extend": "ds_metrics"
+      }
+    },
+    "ds_metric_Rejected_requests": {
+      "type": "ds.chain",
+      "name": "Metric Rejected Requests",
+      "options": {
+        "query": "| table Rejected_requests",
+        "extend": "ds_metrics"
+      }
+    },
+    "ds_delivered_alerts": {
+      "type": "ds.search",
+      "name": "Delivered Alerts",
+      "options": {
+        "query": "index=aws_iam_change_alerts sourcetype=aws:iam:change:alert earliest=-24h latest=now\n| dedup finding_id\n| eval Detected=strftime(detected_at,\"%d %b %H:%M:%S %Z\"), Concern=if(environment=\"Unknown\",\"High-risk policy; context missing\",\"Production high-risk policy attachment\"), _account=account_id, _target=target_user, _event=event_id, _finding=finding_id, _from=event_epoch-900, _to=event_epoch+901\n| sort 0 -detected_at\n| table Detected event_time account_id target_user Concern context_status _account _target _event _finding _from _to\n| rename event_time as \"Event time (UTC)\" account_id as \"AWS account\" target_user as \"Affected identity\" context_status as \"Asset context\"\n"
+      }
+    },
+    "ds_alert_count": {
+      "type": "ds.chain",
+      "name": "Alert Count",
+      "options": {
+        "query": "| stats count as Alerts",
+        "extend": "ds_delivered_alerts"
+      }
+    },
+    "ds_trend": {
+      "type": "ds.search",
+      "name": "Trend",
+      "options": {
+        "query": "index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss earliest=-8d latest=now\n| dedup recipientAccountId eventID\n| timechart span=1h fixedrange=false count as \"IAM management events\"\n"
+      }
+    },
+    "ds_context": {
+      "type": "ds.search",
+      "name": "Context",
+      "options": {
+        "query": "index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss\n| dedup recipientAccountId eventID\n| eval account_id=recipientAccountId, target_user='requestParameters.userName', actor_arn='userIdentity.arn', role_arn=coalesce('userIdentity.sessionContext.sessionIssuer.arn','userIdentity.arn'), actor_key='userIdentity.accessKeyId', policy_arn=coalesce('requestParameters.policyArn',\"-\"), outcome=if(isnotnull(errorCode) OR isnotnull(errorMessage),\"Rejected\",\"API completed without reported error\")\n| where account_id=$case_account|s$ AND target_user=$case_target|s$ AND _time>=tonumber($case_from|s$) AND _time<tonumber($case_to|s$)\n| lookup gss_assets.csv account_id target_user OUTPUT target_arn environment owner expected_policy boundary console_access snapshot_from snapshot_to\n| eval snapshot_valid=if(_time>=strptime(replace(snapshot_from,\"Z$\",\"+0000\"),\"%Y-%m-%dT%H:%M:%S%z\") AND _time<=strptime(replace(snapshot_to,\"Z$\",\"+0000\"),\"%Y-%m-%dT%H:%M:%S%z\"),1,0)\n| eval environment=if(snapshot_valid=1,environment,\"Unknown\"), context_status=if(snapshot_valid=1,\"Snapshot available - verify\",\"Missing or out-of-period snapshot\"), target_arn=if(snapshot_valid=1,target_arn,\"Unresolved target ARN\")\n| lookup gss_roles.csv account_id role_arn OUTPUT owner as role_owner attachment_scope\n| stats values(environment) as Environment values(owner) as Service_owner values(expected_policy) as Expected_baseline values(boundary) as Boundary values(console_access) as Console_access values(role_arn) as Caller_roles values(role_owner) as Role_owner values(attachment_scope) as Delegation_scope values(context_status) as Snapshot_status by account_id target_user\n| rename account_id as \"AWS account\" target_user as \"Affected identity\"\n| eval Owners=Service_owner.\" / \".Role_owner\n| rename Expected_baseline as \"Expected baseline\" Console_access as \"Console access\" Snapshot_status as \"Asset context\"\n| table Environment Owners \"Expected baseline\" Boundary \"Console access\" \"Asset context\"\n",
+        "queryParameters": {
+          "earliest": "$case_from$",
+          "latest": "$case_to$"
+        }
+      }
+    },
+    "ds_timeline": {
+      "type": "ds.search",
+      "name": "Timeline",
+      "options": {
+        "query": "index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss\n| dedup recipientAccountId eventID\n| eval account_id=recipientAccountId, target_user='requestParameters.userName', actor_arn='userIdentity.arn', role_arn=coalesce('userIdentity.sessionContext.sessionIssuer.arn','userIdentity.arn'), actor_key='userIdentity.accessKeyId', policy_arn=coalesce('requestParameters.policyArn',\"-\"), outcome=if(isnotnull(errorCode) OR isnotnull(errorMessage),\"Rejected\",\"API completed without reported error\")\n| where account_id=$case_account|s$ AND target_user=$case_target|s$ AND _time>=tonumber($case_from|s$) AND _time<tonumber($case_to|s$)\n| eval Time=strftime(_time,\"%d %b %H:%M:%S %Z\"), Policy=if(policy_arn=\"-\",\"N/A\",policy_arn), Session=actor_arn, Credential=coalesce(actor_key,\"Unavailable\")\n| sort 0 _time eventID\n| table Time eventName outcome Session Credential Policy eventID\n| rename eventName as \"Action\" outcome as \"API outcome\" eventID as \"Event ID\"\n",
+        "queryParameters": {
+          "earliest": "$case_from$",
+          "latest": "$case_to$"
+        }
+      }
+    },
+    "ds_scope": {
+      "type": "ds.search",
+      "name": "Scope",
+      "options": {
+        "query": "index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss\n| dedup recipientAccountId eventID\n| eval account_id=recipientAccountId, target_user='requestParameters.userName', actor_arn='userIdentity.arn', role_arn=coalesce('userIdentity.sessionContext.sessionIssuer.arn','userIdentity.arn'), actor_key='userIdentity.accessKeyId', policy_arn=coalesce('requestParameters.policyArn',\"-\"), outcome=if(isnotnull(errorCode) OR isnotnull(errorMessage),\"Rejected\",\"API completed without reported error\")\n| where account_id=$case_account|s$ AND target_user=$case_target|s$ AND _time>=tonumber($case_from|s$) AND _time<tonumber($case_to|s$)\n| where eventName IN (\"AttachUserPolicy\",\"CreateAccessKey\",\"UpdateAccessKey\",\"DeleteAccessKey\")\n| lookup gss_assets.csv account_id target_user OUTPUT target_arn environment owner expected_policy boundary console_access snapshot_from snapshot_to\n| eval snapshot_valid=if(_time>=strptime(replace(snapshot_from,\"Z$\",\"+0000\"),\"%Y-%m-%dT%H:%M:%S%z\") AND _time<=strptime(replace(snapshot_to,\"Z$\",\"+0000\"),\"%Y-%m-%dT%H:%M:%S%z\"),1,0)\n| eval environment=if(snapshot_valid=1,environment,\"Unknown\"), context_status=if(snapshot_valid=1,\"Snapshot available - verify\",\"Missing or out-of-period snapshot\"), target_arn=if(snapshot_valid=1,target_arn,\"Unresolved target ARN\")\n| eval scope_key=md5(account_id.\"|\".target_arn.\"|\".role_arn.\"|\".eventName.\"|\".policy_arn)\n| join type=left max=0 scope_key [\n    | inputlookup gss_changes.csv\n    | where status=\"Approved\"\n    | eval scope_key=md5(account_id.\"|\".target_arn.\"|\".role_arn.\"|\".event_name.\"|\".policy_arn), start_epoch=strptime(replace(valid_from,\"Z$\",\"+0000\"),\"%Y-%m-%dT%H:%M:%S%z\"), end_epoch=strptime(replace(valid_to,\"Z$\",\"+0000\"),\"%Y-%m-%dT%H:%M:%S%z\")\n    | fields scope_key change_id start_epoch end_epoch scope\n]\n| eval match_id=if(_time>=start_epoch AND _time<=end_epoch,change_id,null())\n| stats values(match_id) as matching_changes values(scope) as scope by eventID _time eventName target_user outcome\n| eval Time=strftime(_time,\"%d %b %H:%M:%S %Z\"), Scope_match=if(mvcount(matching_changes)>0,mvjoin(matching_changes,\", \").\" - this action only; verify overall change\",\"No exact approved scope match - verify\"), Interpretation=if(mvcount(matching_changes)>0,\"Matching key action does not approve a policy attachment\",\"Missing scope match is not proof of compromise\")\n| sort 0 _time\n| table Time eventName outcome Scope_match Interpretation\n| rename eventName as \"Action\" outcome as \"API outcome\" Scope_match as \"Change-scope evidence\"\n",
+        "queryParameters": {
+          "earliest": "$case_from$",
+          "latest": "$case_to$"
+        }
+      }
+    },
+    "ds_raw": {
+      "type": "ds.search",
+      "name": "Raw",
+      "options": {
+        "query": "index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss\n| dedup recipientAccountId eventID\n| eval account_id=recipientAccountId, target_user='requestParameters.userName', actor_arn='userIdentity.arn', role_arn=coalesce('userIdentity.sessionContext.sessionIssuer.arn','userIdentity.arn'), actor_key='userIdentity.accessKeyId', policy_arn=coalesce('requestParameters.policyArn',\"-\"), outcome=if(isnotnull(errorCode) OR isnotnull(errorMessage),\"Rejected\",\"API completed without reported error\")\n| where account_id=$case_account|s$ AND target_user=$case_target|s$ AND _time>=tonumber($case_from|s$) AND _time<tonumber($case_to|s$)\n| sort 0 _time eventID\n| table eventTime eventID _raw\n| rename eventTime as \"UTC event time\" eventID as \"Event ID\" _raw as \"Original synthetic event\"\n",
+        "queryParameters": {
+          "earliest": "$case_from$",
+          "latest": "$case_to$"
+        }
+      }
+    }
+  },
+  "layout": {
+    "globalInputs": [],
+    "layoutDefinitions": {
+      "layout_1": {
+        "type": "grid",
+        "options": {
+          "width": 1440,
+          "height": 2050
+        },
+        "structure": [
+          {
+            "item": "viz_intro",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "w": 1440,
+              "h": 100
+            }
+          },
+          {
+            "item": "viz_Indexed_events",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 100,
+              "w": 288,
+              "h": 110
+            }
+          },
+          {
+            "item": "viz_Unique_events",
+            "type": "block",
+            "position": {
+              "x": 288,
+              "y": 100,
+              "w": 288,
+              "h": 110
+            }
+          },
+          {
+            "item": "viz_Accounts",
+            "type": "block",
+            "position": {
+              "x": 576,
+              "y": 100,
+              "w": 288,
+              "h": 110
+            }
+          },
+          {
+            "item": "viz_Rejected_requests",
+            "type": "block",
+            "position": {
+              "x": 864,
+              "y": 100,
+              "w": 288,
+              "h": 110
+            }
+          },
+          {
+            "item": "viz_count",
+            "type": "block",
+            "position": {
+              "x": 1152,
+              "y": 100,
+              "w": 288,
+              "h": 110
+            }
+          },
+          {
+            "item": "viz_trend",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 210,
+              "w": 1440,
+              "h": 210
+            }
+          },
+          {
+            "item": "viz_alerts",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 420,
+              "w": 1440,
+              "h": 260
+            }
+          },
+          {
+            "item": "viz_selected",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 680,
+              "w": 1440,
+              "h": 100
+            }
+          },
+          {
+            "item": "viz_context",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 780,
+              "w": 1440,
+              "h": 190
+            }
+          },
+          {
+            "item": "viz_timeline",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 970,
+              "w": 1440,
+              "h": 340
+            }
+          },
+          {
+            "item": "viz_scope",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 1310,
+              "w": 1440,
+              "h": 260
+            }
+          },
+          {
+            "item": "viz_decision",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 1570,
+              "w": 1440,
+              "h": 110
+            }
+          },
+          {
+            "item": "viz_raw",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 1680,
+              "w": 1440,
+              "h": 270
+            }
+          },
+          {
+            "item": "viz_limits",
+            "type": "block",
+            "position": {
+              "x": 0,
+              "y": 1950,
+              "w": 1440,
+              "h": 100
+            }
+          }
+        ]
+      }
+    },
+    "tabs": {
+      "items": [
+        {
+          "label": "Alert to investigation",
+          "layoutId": "layout_1"
+        }
+      ]
+    }
+  }
+}
+]]></definition>
+</dashboard>

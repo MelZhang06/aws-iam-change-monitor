@@ -1,0 +1,9 @@
+index=aws_security_enterprise_demo sourcetype=aws:cloudtrail:demo
+| dedup eventID
+| eval account_id=recipientAccountId, principal_arn='userIdentity.arn', identity_type='userIdentity.type', actor=coalesce('userIdentity.userName', 'userIdentity.arn', "unknown"), src=sourceIPAddress, login_result='responseElements.ConsoleLogin', mfa_used='additionalEventData.MFAUsed', target_user='requestParameters.userName', policy_arn='requestParameters.policyArn'
+| eval actor=if(actor="HIDDEN_DUE_TO_SECURITY_REASONS", "unknown", actor)
+| eval outcome=case(eventName="ConsoleLogin", login_result, isnotnull(errorCode) AND errorCode!="success", "Denied", true(), "Success")
+| where account_id=$selected_account|s$ AND principal_arn=$selected_principal|s$ AND src=$selected_src|s$ AND _time>=tonumber($selected_start|s$) AND _time<tonumber($selected_end|s$)
+| sort 0 _time eventID
+| table eventTime eventID _raw
+| rename eventTime as "UTC event time" eventID as "Event ID" _raw as "CloudTrail JSON"

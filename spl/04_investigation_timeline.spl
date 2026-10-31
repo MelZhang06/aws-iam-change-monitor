@@ -1,0 +1,8 @@
+index=aws_security_demo sourcetype=aws:cloudtrail:demo
+| dedup eventID
+| eval account_id=recipientAccountId, principal_arn='userIdentity.arn', identity_type='userIdentity.type', actor=coalesce('userIdentity.userName', 'userIdentity.arn', "unknown"), src=sourceIPAddress, login_result='responseElements.ConsoleLogin', mfa_used='additionalEventData.MFAUsed', target_user='requestParameters.userName', policy_arn='requestParameters.policyArn'
+| eval actor=if(actor="HIDDEN_DUE_TO_SECURITY_REASONS", "unknown", actor)
+| eval outcome=case(eventName="ConsoleLogin", login_result, isnotnull(errorCode) AND errorCode!="success", "Denied", true(), "Success")
+| eval finding=case(eventName="ConsoleLogin" AND login_result="Failure", "Failed sign-in", eventName="ConsoleLogin" AND login_result="Success" AND mfa_used="No", "Successful sign-in without MFA", eventName="AttachUserPolicy", "Policy attachment to ".target_user, eventName="CreateAccessKey", "Access key creation for ".target_user, true(), eventName)
+| sort 0 _time eventID
+| table _time actor principal_arn finding outcome target_user policy_arn src account_id eventName eventID

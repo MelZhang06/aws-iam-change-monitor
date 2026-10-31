@@ -1,0 +1,28 @@
+{
+  "verified_on": "2026-10-31",
+  "splunk_version": "10.6.1.1",
+  "local_tests_passed": 55,
+  "fixture_validation_errors": 0,
+  "history_sha256_unchanged": true,
+  "splunk_web_observed": {
+    "indexed": 50015,
+    "unique_event_ids": 50013,
+    "accounts": 20,
+    "parsed_timestamps": 50015,
+    "max_time_delta_seconds": 0,
+    "rejected": 1,
+    "alert_records": 4,
+    "unique_findings": 4,
+    "native_triggered_execution_rows": 2
+  },
+  "delivery": "Natural scheduled execution, not manual alert Run",
+  "saved_studio_matches_portable_json": true,
+  "primary_simulated_cleanup_verified": true,
+  "limits": [
+    "Synthetic events; no AWS connection",
+    "No external notification",
+    "No real IAM remediation",
+    "No persistent analyst disposition",
+    "No remote GitHub publication or CI run"
+  ]
+}

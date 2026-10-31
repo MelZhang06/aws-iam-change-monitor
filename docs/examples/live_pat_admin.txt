@@ -1,0 +1,21 @@
+          - row "Resize Priority Priority Click to sort Resize Caller Caller Click to sort Resize AWS account AWS account Click to sort Resize Environment Environment Click to sort Resize Affected identity Affected identity Click to sort Resize Sign-in time Sign-in time Click to sort Resize Actions Actions Click to sort Resize Change context Change context Click to sort":
+          - row "High - demo rule alex 111122223333 production svc-analytics 26 Oct 2026 13:07 AEDT 2 No matching approval":
+          - row "High - demo rule pat-admin 777788889999 shared-services svc-reporting 23 Oct 2026 13:07 AEDT 2 Matching approval - verify":
+          - row "Review jordan 900000000001 production svc-reporting 24 Oct 2026 13:07 AEDT 1 No matching approval":
+      - 'heading "Selected investigation: pat-admin" [level=3]'
+          - row "Resize Caller Caller Click to sort Resize AWS account AWS account Click to sort Resize Account name Account name Click to sort Resize Environment Environment Click to sort Resize Business criticality Business criticality Click to sort Resize Owner Owner Click to sort Resize Identity purpose Identity purpose Click to sort Resize Expected activity Expected activity Click to sort":
+          - row "pat-admin 777788889999 demo-shared-services-03 shared-services Standard Cloud team 3 Human IAM-user simulation Change-controlled administration":
+          - row "Resize Time Time Click to sort Resize Caller Caller Click to sort Resize Evidence Evidence Click to sort Resize Outcome Outcome Click to sort Resize MFA MFA Click to sort Resize Target Target Click to sort Resize Policy Policy Click to sort Resize Event ID Event ID Click to sort":
+          - row "23 Oct 13:00:00 AEDT pat-admin Failed sign-in Failure No N/A N/A 2ad95c8f-2ab4-5cf7-acf0-47dc76a2573c":
+          - row "23 Oct 13:01:00 AEDT pat-admin Failed sign-in Failure No N/A N/A 730eb6c2-26fe-57bc-ba2f-7a12fb4eb5e5":
+          - row "23 Oct 13:02:00 AEDT pat-admin Failed sign-in Failure No N/A N/A 0c9f256f-a7df-5b22-8825-dd205716a403":
+          - row "23 Oct 13:03:00 AEDT pat-admin Failed sign-in Failure No N/A N/A a600b5a1-7bd4-5a4f-afe6-0208fea75c97":
+          - row "23 Oct 13:04:00 AEDT pat-admin Failed sign-in Failure No N/A N/A c5c4f133-d678-54b2-b7b2-985a3e7d9435":
+          - row "23 Oct 13:05:00 AEDT pat-admin Failed sign-in Failure No N/A N/A fd4110ba-14a9-5eeb-a25d-cfedd4173790":
+          - row "23 Oct 13:07:00 AEDT pat-admin Successful sign-in without MFA Success No N/A N/A 80e39571-671e-5bb3-b663-328f92dfcc60":
+          - row "23 Oct 13:13:00 AEDT pat-admin Policy attachment Success N/A svc-reporting arn:aws:iam::aws:policy/AdministratorAccess 14e29df2-ae46-5e33-81d1-7c80c1518a8c":
+          - row "23 Oct 13:14:00 AEDT pat-admin Access key creation Success N/A svc-reporting N/A af914944-a2d8-58ec-af30-5f85b6bc1fa6":
+          - row "Resize Time Time Click to sort Resize Action Action Click to sort Resize Affected identity Affected identity Click to sort Resize Change record Change record Click to sort Resize Notes Notes Click to sort":
+          - row "23 Oct 13:13:00 AEDT AttachUserPolicy svc-reporting DEMO-CHG-approved-lookalike Fictional authorised exercise, including an MFA exception; investigate before disposition":
+          - row "23 Oct 13:14:00 AEDT CreateAccessKey svc-reporting DEMO-CHG-approved-lookalike Fictional authorised exercise, including an MFA exception; investigate before disposition":
+          - row "Resize UTC event time UTC event time Click to sort Resize Event ID Event ID Click to sort Resize CloudTrail JSON CloudTrail JSON Click to sort":

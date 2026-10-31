@@ -1,0 +1,97 @@
+{
+  "scope": "Local Python reference only; SPL and dashboard verification required",
+  "events": 50000,
+  "account_count": 20,
+  "caller_principals": 300,
+  "event_counts": {
+    "AttachUserPolicy": 24,
+    "ConsoleLogin": 4508,
+    "CreateAccessKey": 25,
+    "DescribeInstances": 5747,
+    "DescribeSecurityGroups": 5686,
+    "GetCallerIdentity": 5720,
+    "GetUser": 5626,
+    "ListAccessKeys": 5581,
+    "ListAttachedUserPolicies": 5665,
+    "ListBuckets": 5668,
+    "ListUsers": 5750
+  },
+  "events_by_utc_date": {
+    "2026-10-21": 8338,
+    "2026-10-22": 8486,
+    "2026-10-23": 7112,
+    "2026-10-24": 4034,
+    "2026-10-25": 5439,
+    "2026-10-26": 8313,
+    "2026-10-27": 8278
+  },
+  "events_by_region": {
+    "ap-southeast-2": 3820,
+    "eu-west-1": 3885,
+    "us-east-1": 42295
+  },
+  "failed_api_calls": 530,
+  "sequence_action_count": 5,
+  "queue_candidate_count": 3,
+  "queue_candidates": [
+    {
+      "account_id": "777788889999",
+      "principal_arn": "arn:aws:iam::777788889999:user/pat-admin",
+      "actor": "pat-admin",
+      "src": "203.0.113.79",
+      "qualifying_login": "2026-10-23T02:07:00Z",
+      "target": "svc-reporting",
+      "priority": "High \u2014 demo rule",
+      "matching_actions": 2,
+      "actions": [
+        "AttachUserPolicy",
+        "CreateAccessKey"
+      ],
+      "first_change": "2026-10-23T02:13:00Z",
+      "last_change": "2026-10-23T02:14:00Z",
+      "event_ids": [
+        "14e29df2-ae46-5e33-81d1-7c80c1518a8c",
+        "af914944-a2d8-58ec-af30-5f85b6bc1fa6"
+      ]
+    },
+    {
+      "account_id": "900000000001",
+      "principal_arn": "arn:aws:iam::900000000001:user/jordan",
+      "actor": "jordan",
+      "src": "203.0.113.78",
+      "qualifying_login": "2026-10-24T02:07:00Z",
+      "target": "svc-reporting",
+      "priority": "Review",
+      "matching_actions": 1,
+      "actions": [
+        "CreateAccessKey"
+      ],
+      "first_change": "2026-10-24T02:14:00Z",
+      "last_change": "2026-10-24T02:14:00Z",
+      "event_ids": [
+        "d3eed872-bcac-5ac6-829e-2f1144801f2d"
+      ]
+    },
+    {
+      "account_id": "111122223333",
+      "principal_arn": "arn:aws:iam::111122223333:user/alex",
+      "actor": "alex",
+      "src": "203.0.113.77",
+      "qualifying_login": "2026-10-26T02:07:00Z",
+      "target": "svc-analytics",
+      "priority": "High \u2014 demo rule",
+      "matching_actions": 2,
+      "actions": [
+        "AttachUserPolicy",
+        "CreateAccessKey"
+      ],
+      "first_change": "2026-10-26T02:13:00Z",
+      "last_change": "2026-10-26T02:14:00Z",
+      "event_ids": [
+        "7088fe65-638e-51a4-93b3-0cf9e713d3e2",
+        "e30a0064-fc2a-5c74-9afb-3f54059e09c3"
+      ]
+    }
+  ],
+  "approved_lookalike_note": "The approved case deliberately remains in the queue. Context is not automatic suppression."
+}

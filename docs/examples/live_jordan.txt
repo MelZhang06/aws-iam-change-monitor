@@ -1,0 +1,18 @@
+          - row "Resize Priority Priority Click to sort Resize Caller Caller Click to sort Resize AWS account AWS account Click to sort Resize Environment Environment Click to sort Resize Affected identity Affected identity Click to sort Resize Sign-in time Sign-in time Click to sort Resize Actions Actions Click to sort Resize Change context Change context Click to sort":
+          - row "High - demo rule alex 111122223333 production svc-analytics 26 Oct 2026 13:07 AEDT 2 No matching approval":
+          - row "High - demo rule pat-admin 777788889999 shared-services svc-reporting 23 Oct 2026 13:07 AEDT 2 Matching approval - verify":
+          - row "Review jordan 900000000001 production svc-reporting 24 Oct 2026 13:07 AEDT 1 No matching approval":
+      - 'heading "Selected investigation: jordan" [level=3]'
+          - row "Resize Caller Caller Click to sort Resize AWS account AWS account Click to sort Resize Account name Account name Click to sort Resize Environment Environment Click to sort Resize Business criticality Business criticality Click to sort Resize Owner Owner Click to sort Resize Identity purpose Identity purpose Click to sort Resize Expected activity Expected activity Click to sort":
+          - row "jordan 900000000001 demo-production-05 production High Cloud team 5 Human IAM-user simulation Read operations and console access":
+          - row "Resize Time Time Click to sort Resize Caller Caller Click to sort Resize Evidence Evidence Click to sort Resize Outcome Outcome Click to sort Resize MFA MFA Click to sort Resize Target Target Click to sort Resize Policy Policy Click to sort Resize Event ID Event ID Click to sort":
+          - row "24 Oct 13:00:00 AEDT jordan Failed sign-in Failure No N/A N/A 53b31092-f30b-5474-9e78-507569ad6472":
+          - row "24 Oct 13:01:00 AEDT jordan Failed sign-in Failure No N/A N/A 60b93844-c452-5b04-b86b-cb6110e68a61":
+          - row "24 Oct 13:02:00 AEDT jordan Failed sign-in Failure No N/A N/A 45772079-0fd3-5c67-a5e3-b2f43c92f82b":
+          - row "24 Oct 13:03:00 AEDT jordan Failed sign-in Failure No N/A N/A 8c816352-fe86-5c2f-b95d-949953966391":
+          - row "24 Oct 13:04:00 AEDT jordan Failed sign-in Failure No N/A N/A 3c969685-d3e3-54a1-b381-cf22b7488002":
+          - row "24 Oct 13:07:00 AEDT jordan Successful sign-in without MFA Success No N/A N/A 4761acf2-8fd7-5e47-bc48-de9ef2261233":
+          - row "24 Oct 13:14:00 AEDT jordan Access key creation Success N/A svc-reporting N/A d3eed872-bcac-5ac6-829e-2f1144801f2d":
+          - row "Resize Time Time Click to sort Resize Action Action Click to sort Resize Affected identity Affected identity Click to sort Resize Change record Change record Click to sort Resize Notes Notes Click to sort":
+          - row "24 Oct 13:14:00 AEDT CreateAccessKey svc-reporting No matching approval No exact action-and-time match in the fictional change register; investigate with the owner.":
+          - row "Resize UTC event time UTC event time Click to sort Resize Event ID Event ID Click to sort Resize CloudTrail JSON CloudTrail JSON Click to sort":

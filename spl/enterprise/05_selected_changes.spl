@@ -1,0 +1,24 @@
+index=aws_security_enterprise_demo sourcetype=aws:cloudtrail:demo
+| dedup eventID
+| eval account_id=recipientAccountId, principal_arn='userIdentity.arn', identity_type='userIdentity.type', actor=coalesce('userIdentity.userName', 'userIdentity.arn', "unknown"), src=sourceIPAddress, login_result='responseElements.ConsoleLogin', mfa_used='additionalEventData.MFAUsed', target_user='requestParameters.userName', policy_arn='requestParameters.policyArn'
+| eval actor=if(actor="HIDDEN_DUE_TO_SECURITY_REASONS", "unknown", actor)
+| eval outcome=case(eventName="ConsoleLogin", login_result, isnotnull(errorCode) AND errorCode!="success", "Denied", true(), "Success")
+| where account_id=$selected_account|s$ AND principal_arn=$selected_principal|s$ AND src=$selected_src|s$ AND _time>=tonumber($selected_start|s$) AND _time<tonumber($selected_end|s$)
+| where eventName IN ("AttachUserPolicy","PutUserPolicy","CreateAccessKey") AND outcome="Success"
+| eval suspicious_login_time=tonumber($selected_start|s$)+900
+| eval admin_grant=if(eventName="AttachUserPolicy" AND policy_arn="arn:aws:iam::aws:policy/AdministratorAccess",1,0), cross_user_key=if(eventName="CreateAccessKey" AND actor!=target_user,1,0), approval_key=md5(account_id."|".principal_arn."|".target_user."|".eventName."|".coalesce(policy_arn,"-"))
+| join type=left max=0 approval_key [
+    | inputlookup enterprise_approved_changes.csv
+    | rename caller_arn as principal_arn affected_user as target_user event_name as eventName
+    | eval approval_key=md5(account_id."|".principal_arn."|".target_user."|".eventName."|".coalesce(policy_arn,"-")), approval_start=strptime(replace(valid_from,"Z$","+0000"),"%Y-%m-%dT%H:%M:%S%z"), approval_end=strptime(replace(valid_to,"Z$","+0000"),"%Y-%m-%dT%H:%M:%S%z")
+    | fields approval_key change_id approval_start approval_end approval_context
+]
+| eval valid_approval=if(_time>=approval_start AND _time<=approval_end,change_id,null())
+| stats max(admin_grant) as admin_grant max(cross_user_key) as cross_user_key values(policy_arn) as policy_arn values(valid_approval) as matching_changes values(eval(if(isnotnull(valid_approval),approval_context,null()))) as approval_notes by eventID _time account_id principal_arn actor src suspicious_login_time target_user eventName
+| eval approved_action=if(mvcount(matching_changes)>0,1,0)
+| lookup enterprise_accounts.csv account_id OUTPUT account_name environment owner as account_owner
+| lookup enterprise_identities.csv account_id principal_arn OUTPUT owner as identity_owner identity_purpose
+| eval Time=strftime(_time,"%d %b %H:%M:%S %Z"), change_context=if(approved_action=1,mvjoin(matching_changes,", "),"No matching approval"), Notes=if(approved_action=1,mvjoin(approval_notes,"; "),"No exact action-and-time match in the fictional change register; investigate with the owner.")
+| sort 0 _time
+| table Time eventName target_user change_context Notes
+| rename eventName as "Action" target_user as "Affected identity" change_context as "Change record"

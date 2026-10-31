@@ -1,0 +1,7 @@
+index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss
+| dedup recipientAccountId eventID
+| eval account_id=recipientAccountId, target_user='requestParameters.userName', actor_arn='userIdentity.arn', role_arn=coalesce('userIdentity.sessionContext.sessionIssuer.arn','userIdentity.arn'), actor_key='userIdentity.accessKeyId', policy_arn=coalesce('requestParameters.policyArn',"-"), outcome=if(isnotnull(errorCode) OR isnotnull(errorMessage),"Rejected","API completed without reported error")
+| where account_id=$case_account|s$ AND target_user=$case_target|s$ AND _time>=tonumber($case_from|s$) AND _time<tonumber($case_to|s$)
+| sort 0 _time eventID
+| table eventTime eventID _raw
+| rename eventTime as "UTC event time" eventID as "Event ID" _raw as "Original synthetic event"

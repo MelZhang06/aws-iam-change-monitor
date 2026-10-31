@@ -1,0 +1,21 @@
+index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss
+| dedup recipientAccountId eventID
+| eval account_id=recipientAccountId, target_user='requestParameters.userName', actor_arn='userIdentity.arn', role_arn=coalesce('userIdentity.sessionContext.sessionIssuer.arn','userIdentity.arn'), actor_key='userIdentity.accessKeyId', policy_arn=coalesce('requestParameters.policyArn',"-"), outcome=if(isnotnull(errorCode) OR isnotnull(errorMessage),"Rejected","API completed without reported error")
+| where account_id=$case_account|s$ AND target_user=$case_target|s$ AND _time>=tonumber($case_from|s$) AND _time<tonumber($case_to|s$)
+| where eventName IN ("AttachUserPolicy","CreateAccessKey","UpdateAccessKey","DeleteAccessKey")
+| lookup gss_assets.csv account_id target_user OUTPUT target_arn environment owner expected_policy boundary console_access snapshot_from snapshot_to
+| eval snapshot_valid=if(_time>=strptime(replace(snapshot_from,"Z$","+0000"),"%Y-%m-%dT%H:%M:%S%z") AND _time<=strptime(replace(snapshot_to,"Z$","+0000"),"%Y-%m-%dT%H:%M:%S%z"),1,0)
+| eval environment=if(snapshot_valid=1,environment,"Unknown"), context_status=if(snapshot_valid=1,"Snapshot available - verify","Missing or out-of-period snapshot"), target_arn=if(snapshot_valid=1,target_arn,"Unresolved target ARN")
+| eval scope_key=md5(account_id."|".target_arn."|".role_arn."|".eventName."|".policy_arn)
+| join type=left max=0 scope_key [
+    | inputlookup gss_changes.csv
+    | where status="Approved"
+    | eval scope_key=md5(account_id."|".target_arn."|".role_arn."|".event_name."|".policy_arn), start_epoch=strptime(replace(valid_from,"Z$","+0000"),"%Y-%m-%dT%H:%M:%S%z"), end_epoch=strptime(replace(valid_to,"Z$","+0000"),"%Y-%m-%dT%H:%M:%S%z")
+    | fields scope_key change_id start_epoch end_epoch scope
+]
+| eval match_id=if(_time>=start_epoch AND _time<=end_epoch,change_id,null())
+| stats values(match_id) as matching_changes values(scope) as scope by eventID _time eventName target_user outcome
+| eval Time=strftime(_time,"%d %b %H:%M:%S %Z"), Scope_match=if(mvcount(matching_changes)>0,mvjoin(matching_changes,", ")." - this action only; verify overall change","No exact approved scope match - verify"), Interpretation=if(mvcount(matching_changes)>0,"Matching key action does not approve a policy attachment","Missing scope match is not proof of compromise")
+| sort 0 _time
+| table Time eventName outcome Scope_match Interpretation
+| rename eventName as "Action" outcome as "API outcome" Scope_match as "Change-scope evidence"

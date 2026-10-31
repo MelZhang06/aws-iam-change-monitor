@@ -1,0 +1,4 @@
+index=aws_security_enterprise_demo sourcetype=aws:cloudtrail:demo eventName=ConsoleLogin
+| dedup eventID
+| eval login_result='responseElements.ConsoleLogin'
+| timechart span=1h fixedrange=false count by login_result

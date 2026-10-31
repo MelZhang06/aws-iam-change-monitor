@@ -1,0 +1,301 @@
+account_id,principal_arn,actor,identity_type,identity_purpose,owner,expected_activity,context_source
+111122223333,arn:aws:iam::111122223333:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 1,Change-controlled administration,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+111122223333,arn:aws:iam::111122223333:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 2,Change-controlled administration,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+444455556666,arn:aws:iam::444455556666:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 3,Change-controlled administration,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+777788889999,arn:aws:iam::777788889999:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 4,Change-controlled administration,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000000,arn:aws:iam::900000000000:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 5,Change-controlled administration,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000001,arn:aws:iam::900000000001:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 1,Change-controlled administration,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+900000000002,arn:aws:iam::900000000002:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 2,Change-controlled administration,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+900000000003,arn:aws:iam::900000000003:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 3,Change-controlled administration,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+900000000004,arn:aws:iam::900000000004:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 4,Change-controlled administration,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000005,arn:aws:iam::900000000005:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 5,Change-controlled administration,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000006,arn:aws:iam::900000000006:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 1,Change-controlled administration,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+900000000007,arn:aws:iam::900000000007:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 2,Change-controlled administration,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+900000000008,arn:aws:iam::900000000008:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 3,Change-controlled administration,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+900000000009,arn:aws:iam::900000000009:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 4,Change-controlled administration,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000010,arn:aws:iam::900000000010:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 5,Change-controlled administration,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000011,arn:aws:iam::900000000011:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 1,Read operations and console access,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 1,Change-controlled administration,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+900000000012,arn:aws:iam::900000000012:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 1,Read-only inventory workload,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 2,Read operations and console access,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 2,Change-controlled administration,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+900000000013,arn:aws:iam::900000000013:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 2,Read-only inventory workload,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 3,Read operations and console access,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 3,Change-controlled administration,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+900000000014,arn:aws:iam::900000000014:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 3,Read-only inventory workload,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 4,Read operations and console access,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 4,Change-controlled administration,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000015,arn:aws:iam::900000000015:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 4,Read-only inventory workload,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/alex,alex,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/sam,sam,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/jordan,jordan,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/riley,riley,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/morgan,morgan,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/casey,casey,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/taylor,taylor,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/jamie,jamie,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/avery,avery,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/robin,robin,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/drew,drew,IAMUser,Human IAM-user simulation,Cloud team 5,Read operations and console access,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/pat-admin,pat-admin,IAMUser,Human IAM-user simulation,Cloud team 5,Change-controlled administration,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/svc-analytics,svc-analytics,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/svc-reporting,svc-reporting,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation
+900000000016,arn:aws:iam::900000000016:user/svc-build,svc-build,IAMUser,Legacy automation simulation,Cloud team 5,Read-only inventory workload,Fictional enterprise simulation

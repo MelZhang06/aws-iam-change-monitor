@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+.aws/
+data/*
+!data/.gitkeep
+*.pem
+*.key
+.DS_Store
+# Local working notes and verbose browser captures are not showcase artifacts.
+docs/*_task.md
+docs/examples/change_monitor/*_dom.txt

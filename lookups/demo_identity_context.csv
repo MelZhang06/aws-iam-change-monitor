@@ -1,0 +1,6 @@
+account_id,actor,environment,owner,expected_activity,context_source
+111122223333,alex,production,Analytics team,Analytics support; IAM administration requires review,Fictional demo lookup
+111122223333,svc-analytics,production,Analytics team,Analytics workload identity,Fictional demo lookup
+444455556666,casey,development,Engineering team,Console user; isolated failure control,Fictional demo lookup
+777788889999,pat-admin,shared-services,Cloud platform team,Approved demo change DEMO-CHG-001 for svc-reporting,Fictional demo lookup
+777788889999,svc-reporting,shared-services,Cloud platform team,Reporting workload identity,Fictional demo lookup

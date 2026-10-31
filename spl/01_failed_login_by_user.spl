@@ -1,0 +1,10 @@
+index=aws_security_demo sourcetype=aws:cloudtrail:demo
+| dedup eventID
+| eval account_id=recipientAccountId, principal_arn='userIdentity.arn', identity_type='userIdentity.type', actor=coalesce('userIdentity.userName', 'userIdentity.arn', "unknown"), src=sourceIPAddress, login_result='responseElements.ConsoleLogin', mfa_used='additionalEventData.MFAUsed', target_user='requestParameters.userName', policy_arn='requestParameters.policyArn'
+| eval actor=if(actor="HIDDEN_DUE_TO_SECURITY_REASONS", "unknown", actor)
+| eval outcome=case(eventName="ConsoleLogin", login_result, isnotnull(errorCode) AND errorCode!="success", "Denied", true(), "Success")
+| where eventName="ConsoleLogin" AND login_result="Failure"
+| bin _time span=15m
+| stats count as failed_logins values(actor) as observed_actors by _time account_id src
+| where failed_logins>=5
+| sort 0 -failed_logins

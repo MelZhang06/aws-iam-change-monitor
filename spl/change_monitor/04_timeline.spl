@@ -1,0 +1,8 @@
+index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss
+| dedup recipientAccountId eventID
+| eval account_id=recipientAccountId, target_user='requestParameters.userName', actor_arn='userIdentity.arn', role_arn=coalesce('userIdentity.sessionContext.sessionIssuer.arn','userIdentity.arn'), actor_key='userIdentity.accessKeyId', policy_arn=coalesce('requestParameters.policyArn',"-"), outcome=if(isnotnull(errorCode) OR isnotnull(errorMessage),"Rejected","API completed without reported error")
+| where account_id=$case_account|s$ AND target_user=$case_target|s$ AND _time>=tonumber($case_from|s$) AND _time<tonumber($case_to|s$)
+| eval Time=strftime(_time,"%d %b %H:%M:%S %Z"), Policy=if(policy_arn="-","N/A",policy_arn), Session=actor_arn, Credential=coalesce(actor_key,"Unavailable")
+| sort 0 _time eventID
+| table Time eventName outcome Session Credential Policy eventID
+| rename eventName as "Action" outcome as "API outcome" eventID as "Event ID"

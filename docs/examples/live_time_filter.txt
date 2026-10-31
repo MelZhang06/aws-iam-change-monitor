@@ -1,0 +1,127 @@
+- banner
+- banner:
+  - article:
+    - link "Skip to main content":
+      - /url: "#main"
+      - generic: Skip to main content
+    - link "Splunk":
+      - /url: /en-GB/app/launcher
+      - img "Splunk Logo"
+      - generic: Enterprise
+  - button "Health of Splunk Deployment":
+    - generic: Health of Splunk Deployment
+  - button "Find":
+    - generic: Find
+  - button "Activity":
+    - generic: Activity
+  - button "Settings":
+    - generic: Settings
+  - button "Notifications 1 messages":
+    - generic: "1"
+    - generic: Notifications 1 messages
+  - button "Help":
+    - generic: Help
+  - separator
+  - button "User Profile":
+    - paragraph:
+      - generic: Administrator
+    - generic: User Profile
+  - button "Apps":
+    - generic: Apps
+- main:
+  - navigation "Side navigation panel":
+    - heading "Side navigation panel" [level=2]
+    - switch "Menu shrink" [checked]:
+    - link "Search & Reporting logo":
+      - /url: /en-GB/app/search
+      - img "Search & Reporting logo"
+    - generic: Search & Reporting
+    - menu:
+      - menuitem "Search":
+        - generic: Search
+      - menuitem "Datasets":
+        - generic: Datasets
+      - menuitem "Reports":
+        - generic: Reports
+      - menuitem "Alerts":
+        - generic: Alerts
+      - menuitem "Dashboards":
+        - generic: Dashboards
+      - menuitem "Modules":
+        - generic: Modules
+  - main:
+    - button "Select to favorite this dashboard":
+    - generic: Select to favorite this dashboard
+    - button "Download":
+      - generic: Download
+    - button "Display options":
+      - generic: Display
+    - generic: Display
+    - button "Actions":
+      - generic: Actions
+    - button "Edit":
+      - generic: Edit
+    - button "Expanded":
+      - generic: Expanded
+    - heading "AWS Enterprise Identity Investigation" [level=2]
+    - paragraph: "Synthetic enterprise CloudTrail: prioritize suspicious identity sequences, inspect evidence and validate change context."
+    - generic "Input Investigation time range":
+      - generic "Investigation time range":
+        - generic: Investigation time range
+      - generic: Last 24 hours
+      - button "Investigation time range Last 24 hours" [active]:
+        - generic: Last 24 hours
+    - generic "Visualization Markdown":
+      - heading "From activity to investigation" [level=3]
+      - paragraph: Synthetic CloudTrail · 20 accounts · IAM-user scope. Start with the queue, select a row, then inspect its evidence and change context. Priority is an educational rule, not a calibrated risk score.
+    - generic "Visualization CloudTrail events":
+      - generic: CloudTrail events
+      - generic "3,556"
+    - generic "Visualization AWS accounts":
+      - generic: AWS accounts
+      - generic "20"
+    - generic "Visualization IAM principals":
+      - generic: IAM principals
+      - generic "293"
+    - generic "Visualization Failed sign-ins":
+      - generic: Failed sign-ins
+      - generic "8"
+    - generic "Visualization Investigation candidates":
+      - generic: Investigation candidates
+      - generic "0"
+    - generic "Visualization Console sign-ins — hourly success and failure":
+      - generic: Console sign-ins — hourly success and failure
+      - table:
+        - rowgroup:
+          - row "27 Oct 2026 22:00":
+            - cell "27 Oct 2026 22:00"
+          - 'row "Success: 6"':
+            - cell "Success:"
+            - cell "6"
+    - button "Open in Search, Console sign-ins — hourly success and failure":
+    - generic: Open in Search, Console sign-ins — hourly success and failure
+    - link "Inspect - Open Externally":
+    - button "Fullscreen, Console sign-ins — hourly success and failure":
+    - generic: Fullscreen, Console sign-ins — hourly success and failure
+    - button "Refresh, Console sign-ins — hourly success and failure":
+    - generic: Refresh, Console sign-ins — hourly success and failure
+    - button "Export, Console sign-ins — hourly success and failure":
+    - generic: Export, Console sign-ins — hourly success and failure
+    - generic "Visualization Investigation queue — select a row to inspect evidence":
+      - generic: Investigation queue — select a row to inspect evidence
+      - generic: 5+ failures in 15 minutes → success without MFA → successful IAM change within 15 minutes. High requires AdministratorAccess and a cross-user access key for the same affected identity. Approval context does not suppress candidates.
+      - img "Table"
+      - paragraph: No search results returned
+      - button "Warning":
+        - img "Warning":
+    - generic "Visualization Markdown":
+      - 'heading "Selected investigation: jordan" [level=3]'
+      - paragraph: "Scope: account + principal ARN + source IP, within 15 minutes of the qualifying sign-in and the global time filter. Select a queue row to show evidence. If a time change hides the selected evidence, select another candidate."
+    - generic "Visualization Markdown":
+      - paragraph:
+        - strong: "Investigation limits:"
+        - text: a sequence is not proof of compromise. MFAUsed=No does not mean MFA was disabled. Missing change records mean unknown authorisation. Documentation IPs cannot support geolocation. Synthetic IAM users only; roles, Identity Center, ES risk and production scale remain future work.
+  - generic: Visualizations updated
+  - status
+- alert
+- alert

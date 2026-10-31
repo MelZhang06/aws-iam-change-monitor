@@ -1,0 +1,18 @@
+index=aws_security_demo sourcetype=aws:cloudtrail:demo
+| dedup eventID
+| eval account_id=recipientAccountId, principal_arn='userIdentity.arn', identity_type='userIdentity.type', actor=coalesce('userIdentity.userName', 'userIdentity.arn', "unknown"), src=sourceIPAddress, login_result='responseElements.ConsoleLogin', mfa_used='additionalEventData.MFAUsed', target_user='requestParameters.userName', policy_arn='requestParameters.policyArn'
+| eval actor=if(actor="HIDDEN_DUE_TO_SECURITY_REASONS", "unknown", actor)
+| eval outcome=case(eventName="ConsoleLogin", login_result, isnotnull(errorCode) AND errorCode!="success", "Denied", true(), "Success")
+| where identity_type="IAMUser" AND isnotnull(principal_arn) AND actor!="unknown"
+| eval event_order=if(eventName="ConsoleLogin" AND login_result="Success",0,1), is_failure=if(eventName="ConsoleLogin" AND login_result="Failure",1,0)
+| sort 0 _time event_order eventID
+| streamstats time_window=15m sum(is_failure) as preceding_failures by account_id principal_arn src
+| eval candidate_login=if(eventName="ConsoleLogin" AND login_result="Success" AND mfa_used="No" AND preceding_failures>=5,_time,null())
+| streamstats current=f last(candidate_login) as suspicious_login_time by account_id principal_arn src
+| where eventName IN ("AttachUserPolicy","PutUserPolicy","CreateAccessKey") AND outcome="Success" AND _time>suspicious_login_time AND _time-suspicious_login_time<=900
+| eval admin_grant=if(eventName="AttachUserPolicy" AND policy_arn="arn:aws:iam::aws:policy/AdministratorAccess",1,0), cross_user_key=if(eventName="CreateAccessKey" AND actor!=target_user,1,0)
+| stats min(_time) as first_change max(_time) as last_change count as matching_actions values(eventName) as actions max(admin_grant) as admin_grant max(cross_user_key) as cross_user_key by account_id principal_arn actor src suspicious_login_time target_user
+| eval priority=if(admin_grant=1 AND cross_user_key=1,"High — demo rule","Review"), priority_order=if(priority="High — demo rule",1,2), evidence="5+ failures → successful sign-in without MFA → IAM changes", sign_in_time=strftime(suspicious_login_time,"%d %b %Y %H:%M %Z"), last_activity=strftime(last_change,"%d %b %Y %H:%M %Z")
+| sort 0 priority_order -last_change
+| table priority actor account_id target_user src sign_in_time last_activity matching_actions actions evidence
+| rename priority as "Priority" actor as "Caller" account_id as "AWS account" target_user as "Affected identity" src as "Source IP" sign_in_time as "Qualifying sign-in" last_activity as "Latest activity" matching_actions as "Matching actions" actions as "Observed actions" evidence as "Sequence evidence"

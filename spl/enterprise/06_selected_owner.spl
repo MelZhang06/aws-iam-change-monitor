@@ -1,0 +1,11 @@
+index=aws_security_enterprise_demo sourcetype=aws:cloudtrail:demo
+| dedup eventID
+| eval account_id=recipientAccountId, principal_arn='userIdentity.arn', identity_type='userIdentity.type', actor=coalesce('userIdentity.userName', 'userIdentity.arn', "unknown"), src=sourceIPAddress, login_result='responseElements.ConsoleLogin', mfa_used='additionalEventData.MFAUsed', target_user='requestParameters.userName', policy_arn='requestParameters.policyArn'
+| eval actor=if(actor="HIDDEN_DUE_TO_SECURITY_REASONS", "unknown", actor)
+| eval outcome=case(eventName="ConsoleLogin", login_result, isnotnull(errorCode) AND errorCode!="success", "Denied", true(), "Success")
+| where account_id=$selected_account|s$ AND principal_arn=$selected_principal|s$ AND src=$selected_src|s$ AND _time>=tonumber($selected_start|s$) AND _time<tonumber($selected_end|s$)
+| stats count as Events by account_id principal_arn actor
+| lookup enterprise_accounts.csv account_id OUTPUT account_name environment owner as account_owner criticality
+| lookup enterprise_identities.csv account_id principal_arn OUTPUT owner as identity_owner identity_purpose expected_activity
+| table actor account_id account_name environment criticality identity_owner identity_purpose expected_activity
+| rename actor as "Caller" account_id as "AWS account" account_name as "Account name" environment as "Environment" criticality as "Business criticality" identity_owner as "Owner" identity_purpose as "Identity purpose" expected_activity as "Expected activity"

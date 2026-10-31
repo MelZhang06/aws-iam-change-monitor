@@ -1,0 +1,6 @@
+index=aws_iam_change_alerts sourcetype=aws:iam:change:alert earliest=-24h latest=now
+| dedup finding_id
+| eval Detected=strftime(detected_at,"%d %b %H:%M:%S %Z"), Concern=if(environment="Unknown","High-risk policy; context missing","Production high-risk policy attachment"), _account=account_id, _target=target_user, _event=event_id, _finding=finding_id, _from=event_epoch-900, _to=event_epoch+901
+| sort 0 -detected_at
+| table Detected event_time account_id target_user Concern context_status _account _target _event _finding _from _to
+| rename event_time as "Event time (UTC)" account_id as "AWS account" target_user as "Affected identity" context_status as "Asset context"

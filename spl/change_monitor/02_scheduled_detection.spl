@@ -1,0 +1,11 @@
+index=aws_iam_change_demo sourcetype=aws:cloudtrail:gss _index_earliest=-15m
+| dedup recipientAccountId eventID
+| eval account_id=recipientAccountId, target_user='requestParameters.userName', actor_arn='userIdentity.arn', role_arn=coalesce('userIdentity.sessionContext.sessionIssuer.arn','userIdentity.arn'), actor_key='userIdentity.accessKeyId', policy_arn=coalesce('requestParameters.policyArn',"-"), outcome=if(isnotnull(errorCode) OR isnotnull(errorMessage),"Rejected","API completed without reported error")
+| where eventSource="iam.amazonaws.com" AND eventName="AttachUserPolicy" AND policy_arn="arn:aws:iam::aws:policy/AdministratorAccess" AND isnull(errorCode) AND isnull(errorMessage)
+| lookup gss_assets.csv account_id target_user OUTPUT target_arn environment owner expected_policy boundary console_access snapshot_from snapshot_to
+| eval snapshot_valid=if(_time>=strptime(replace(snapshot_from,"Z$","+0000"),"%Y-%m-%dT%H:%M:%S%z") AND _time<=strptime(replace(snapshot_to,"Z$","+0000"),"%Y-%m-%dT%H:%M:%S%z"),1,0)
+| eval environment=if(snapshot_valid=1,environment,"Unknown"), context_status=if(snapshot_valid=1,"Snapshot available - verify","Missing or out-of-period snapshot"), target_arn=if(snapshot_valid=1,target_arn,"Unresolved target ARN")
+| where environment="production" OR environment="Unknown"
+| eval rule_id="gss-admin-attach-v2", finding_id=sha256(account_id."|".eventID."|gss-admin-attach-v2"), detected_at=now(), event_epoch=_time
+| eval alert_payload=json_object("rule_id",rule_id,"finding_id",finding_id,"event_id",eventID,"account_id",account_id,"target_user",target_user,"target_arn",target_arn,"environment",environment,"actor_arn",actor_arn,"role_arn",role_arn,"actor_key",coalesce(actor_key,"Unknown"),"policy_arn",policy_arn,"event_time",eventTime,"event_epoch",event_epoch,"detected_at",detected_at,"context_status",context_status)
+| table finding_id rule_id eventID account_id target_user target_arn environment actor_arn role_arn actor_key policy_arn eventTime event_epoch detected_at context_status alert_payload
